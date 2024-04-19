@@ -22,9 +22,36 @@ public class DataMasking {
 
     void createData() throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Введите номер телефона в формате 79998886655");
-        Integer telephone = Integer.valueOf(reader.readLine());
+//        System.out.println("Введите ФОИ в формате Иванов Иван Иванович");
+//        String fio = reader.readLine();
+//        System.out.println("Введите номер телефона в формате 79998886655");
+//        String telephone = reader.readLine();
+        System.out.println("Введите свой Email в формате test@yandex.ru/my_mail@gmail.com");
+        String emailOrig = reader.readLine();
+        StringBuffer buffer = new StringBuffer(emailOrig);
+        //Распечатаю оригинальный email
+        System.out.println(emailOrig);
 
-        System.out.println(telephone);
+        int emailMid = buffer.indexOf("@");
+        int emailStart = 1;
+        String rep = "*****";
+        buffer.replace(emailStart, emailMid - 1, rep);
+        System.out.println(buffer);
+        //Делаем правую часть email sergey@mail.ru
+        //System.out.println(buffer.indexOf("@"));
+        emailMid = buffer.indexOf("@");
+        int emailEnd = buffer.indexOf(".");
+        buffer.replace(emailMid + 1, emailEnd, rep);
+        System.out.println(buffer);
+
     }
 }
+/* Чтобы проверить, является ли переменная Integer в Java, вы можете использовать метод
+Integer.valueOf() или Integer.parseInt(). Вот пример кода:
+String string = "10";
+intValue = Integer.valueOf(string);
+if (intValue != null) {
+ System.out.println("Строка является числом");
+} else {
+ System.out.println("Строка не является числом");
+}*/
