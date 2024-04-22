@@ -44,14 +44,8 @@ public class DataMasking {
         buffer.replace(emailMid + 1, emailEnd, rep);
         System.out.println(buffer);
 
+        char i = 10828;
+        System.out.println(i);
+
     }
 }
-/* Чтобы проверить, является ли переменная Integer в Java, вы можете использовать метод
-Integer.valueOf() или Integer.parseInt(). Вот пример кода:
-String string = "10";
-intValue = Integer.valueOf(string);
-if (intValue != null) {
- System.out.println("Строка является числом");
-} else {
- System.out.println("Строка не является числом");
-}*/
