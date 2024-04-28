@@ -50,14 +50,23 @@ public class CarService {
     }
 
     void repair() {
-        if (hasFuel && (hasElectricsProblem ||
-                    hasMotorProblem ||
-                    hasTransmissionProblem ||
-                    hasWheelsProblem)) {
+        if (hasFuel && !(hasElectricsProblem ||
+                hasMotorProblem ||
+                hasTransmissionProblem ||
+                hasWheelsProblem)) {
+            price += fuelPrice;
+            System.out.println("В баке автомобиля небыло бензина. Всё исправно\nСчёт клиенту: " +
+                    fuelPrice + " рублей за консультацию/диагностику.");
+        }
+        else if (hasFuel && (hasElectricsProblem ||
+                hasMotorProblem ||
+                hasTransmissionProblem ||
+                hasWheelsProblem)) {
             System.out.println("В баке автомобиля небыло бензина.");
         } else {
+            System.out.println("В бак автомобиля долили бензин.");
             price += fuelPrice;
-            System.out.println("В баке автомобиля небыло бензина.\nСчёт клиенту: " +
+            System.out.println("Всё исправно\nСчёт клиенту: " +
                     fuelPrice + " рублей за консультацию/диагностику.");
         }
         if (hasMotorProblem) {
@@ -88,7 +97,8 @@ public class CarService {
         int discount = 0;
         if (count == 2) {
             discount = 10;
-        } if (hasTransmissionProblem && (hasElectricsProblem || hasMotorProblem)) {
+        }
+        if (hasTransmissionProblem && (hasElectricsProblem || hasMotorProblem)) {
             discount = 20;
         }
 
@@ -102,6 +112,6 @@ public class CarService {
         System.out.println("----------------------------------------------");
 
         System.out.println("Итоговая стоимость ремонта: " +
-                          (price - (price * discount / 100)) + " рублей.");
+                (price - (price * discount / 100)) + " рублей.");
     }
 }

@@ -21,11 +21,11 @@ public class Car {
         Ожидаемый результат: выведен на экран, счёт клиенту. */
 
     void problemsCar() {
-    CarService carService = new CarService(true,
+    CarService carService = new CarService(false,
                                   false,
                                   false,
                                   false,
-                                  true);
+                                  false);
     carService.repair();
     }
 }

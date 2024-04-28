@@ -6,7 +6,7 @@ public class Expression {
     void express() {
         int a = 3;
         int b = 5;
-        int c = (a + b) ^ 2;
+        int c = (a + b) * (a + b);
         System.out.println(c);
     }
 }
