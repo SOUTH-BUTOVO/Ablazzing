@@ -18,7 +18,7 @@ public class PlastNum {
         while (result < 1_000_000) {
             result += increment;
             i++;
-            System.out.println(result + " " + i);
         }
+        System.out.println(result + " " + i);
     }
 }
