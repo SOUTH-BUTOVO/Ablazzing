@@ -1,6 +1,6 @@
 package ru.Ablazzing.lesson6;
 
-public class Dog extends Animal {
+public class Dog extends Animal implements Defendable {
     int countLegs;
 
     public Dog(String name, int countLegs) {
@@ -13,7 +13,7 @@ public class Dog extends Animal {
         System.out.println("Собака кусака лает");
     }
 
-    void defend() {
+    public void defend() {
         System.out.println("Собака охраняет");
     }
 

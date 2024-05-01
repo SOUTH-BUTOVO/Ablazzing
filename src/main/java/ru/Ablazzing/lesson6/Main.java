@@ -2,6 +2,43 @@ package ru.Ablazzing.lesson6;
 
 public class Main {
     public static void main(String[] args) {
+        //animalExample();
+        //defenderExample();
+        //humanExample();
+
+    }
+
+    static void humanExample() {
+        Human oleg1 = new Human("Oleg");
+        Human petr1 = new Human("Petr");
+        Human dima1 = new Human("Dima");
+        System.out.println(Human.count);
+
+        Human[] human = {oleg1, petr1, dima1};
+        for (Human h : human) {
+            System.out.println(h.name);
+        }
+        System.out.println("--------");
+        System.out.println(oleg1.name + "\n" + petr1.name + "\n" + dima1.name);
+    }
+
+    static void defenderExample() {
+        Defendable dog4 = new Dog("Sharik", 4);
+        Defendable robot4 = new Robot();
+        dog4.defend();
+        robot4.defend();
+        System.out.println("-------");
+
+        Defendable[] defendables = {dog4, robot4};
+        for (Defendable def : defendables) {
+            if (def instanceof Defendable) {
+                def.defend();
+                def.attack();
+            }
+        }
+    }
+
+    static void animalExample() {
         Cat cat1 = new Cat("Pusok");
         Dog dog1 = new Dog("Muxtar", 4);
         Animal cat2 = new Cat("Vaska");
@@ -25,6 +62,5 @@ public class Main {
             animal.makeSound();
         }
         System.out.println("---------");
-
     }
 }
