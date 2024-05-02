@@ -1,4 +1,4 @@
-package ru.Ablazzing.lesson6;
+package ru.Ablazzing.lesson6_Polimorf_Interf_Static;
 
 public class Dog extends Animal implements Defendable {
     int countLegs;
