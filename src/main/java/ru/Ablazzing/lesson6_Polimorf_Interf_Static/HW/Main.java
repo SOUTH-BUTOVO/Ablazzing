@@ -58,6 +58,71 @@ public class Main {
         }
         System.out.println("--------------------");
 
+        int numberDay = 5;
+
+        switch (numberDay) {
+            case (1):
+                System.out.println("Понедельник");
+                break;
+            case (2):
+                System.out.println("Вторник");
+                break;
+            case (3):
+                System.out.println("Среда");
+                break;
+            case (4):
+                System.out.println("Четверг");
+                break;
+            case (5):
+                System.out.println("Пятница");
+                break;
+            case (6):
+                System.out.println("Суббота");
+                break;
+            case (7):
+                System.out.println("Воскресенье");
+                break;
+            default:
+                System.out.println("Не правильно введён день недели");
+        }
+
+//        switch (numberDay) {
+//            case 1 -> System.out.println("Понедельник");
+//            case 2 -> System.out.println("Вторник");
+//            case 3 -> System.out.println("Среда");
+//            case 4 -> System.out.println("Четверг");
+//            case 5 -> System.out.println("Пятница");
+//            case 6 -> System.out.println("Суббота");
+//            case 7 -> System.out.println("Воскресенье");
+//            default -> System.out.println("Не правильно введён день недели");
+//        }
+
+        /* Проверить работоспособность машины: двигатель(Engine) и трансмиссия(Transmission) -
+        работают, и хотя бы 3 колеса из 4 не проколоты.
+        Если машина работоспособна, вывести на экран - машина готова к эксплуатации.
+        Если машина НЕработоспособна, вывести на экран - машина сломана.
+        */
+        boolean isWorkEngine = true;
+        boolean isWorkTransmission = true;
+        boolean isFineWheel1 = true;
+        boolean isFineWheel2 = false;
+        boolean isFineWheel3 = true;
+        boolean isFineWheel4 = false;
+
+        int countFineWheel = 0;
+
+        countFineWheel += isFineWheel1 ? 1 : 0;
+        countFineWheel += isFineWheel2 ? 1 : 0;
+        countFineWheel += isFineWheel3 ? 1 : 0;
+        countFineWheel += isFineWheel4 ? 1 : 0;
+
+        System.out.println("Исправных шин: " + countFineWheel);
+        if (isWorkEngine && isWorkTransmission && countFineWheel >= 3) {
+            System.out.println("Машина готова к эксплуатации");
+        } else {
+            System.out.println("Машина сломана");
+        }
+
     /* 4 Написать систему управления складскими запасами. Создать класс склад, создать класс работники
     (написать геттеры на все атрибуты). Количество работников минимум 3. Работники берут со склада
     товар и портят его. Нужно написать взаимодействие через методы работников и склада. Работник берёт
@@ -72,7 +137,7 @@ public class Main {
             - Статический метод builder(), который возвращает экземпляр типа HumanBuilder.
         Во время инициализации HumanBuilder, создаётся объект класса Human и записывается в приватный атрибут.
             - Класс HumanBuilder имеет методы, которые имеют то же самое название, что и атрибуты класса
-        Human которые вызывают сеттеры у экземпляра класса Human.
+        Human, которые вызывают сеттеры у экземпляра класса Human.
             - HumanBuilder имеет метод buld(); который возвращает готовый объект типа Human.
         Ожидаемый результат:
         Human human = Human.builder().name("Пётр").age(20).weight(80).build();
