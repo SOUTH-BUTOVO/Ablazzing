@@ -5,6 +5,9 @@ import ru.Ablazzing.lesson6_Polimorf_Interf_Static.HW.cars.Cars;
 import ru.Ablazzing.lesson6_Polimorf_Interf_Static.HW.cars.Lada;
 import ru.Ablazzing.lesson6_Polimorf_Interf_Static.HW.computer.Electronic;
 import ru.Ablazzing.lesson6_Polimorf_Interf_Static.HW.flora.*;
+import ru.Ablazzing.lesson6_Polimorf_Interf_Static.HW.storage.Storage;
+import ru.Ablazzing.lesson6_Polimorf_Interf_Static.HW.storage.Worker;
+import ru.Ablazzing.lesson6_Polimorf_Interf_Static.HW.task5.Human;
 
 public class Main {
     public static void main(String[] args) {
@@ -122,6 +125,7 @@ public class Main {
         } else {
             System.out.println("Машина сломана");
         }
+        System.out.println("--------------------");
 
     /* 4 Написать систему управления складскими запасами. Создать класс склад, создать класс работники
     (написать геттеры на все атрибуты). Количество работников минимум 3. Работники берут со склада
@@ -129,6 +133,14 @@ public class Main {
     со склада товар, на складе товар уменьшается. Работник когда взял товар, выводит на экран "Ура, я
     испортил водку!" и добавляет к себе в журнал, количество испорченного товара. У склада есть только
     одна позиция товара - Водка. */
+        Storage storage = new Storage(10);
+        Worker worker1 = new Worker();
+        Worker worker2 = new Worker();
+        Worker worker3 = new Worker();
+        worker1.takeVodka(storage);
+        worker2.takeVodka(storage);
+        worker3.takeVodka(storage);
+        System.out.println("--------------------");
 
         /* 5 Реализовать шаблон Builder для класса Human (атрибуты - возраст, имя, вес. Метод: инфо о
         человеке). Для этого шаблона характерно:
@@ -143,5 +155,8 @@ public class Main {
         Human human = Human.builder().name("Пётр").age(20).weight(80).build();
         human.info();
         Пётр - возраст 20, вес 80. */
+        //Human.HumanBuilder humanBuilder = new Human.HumanBuilder();
+        Human petr = Human.builder().name("Petr").age(20).weight(81).build();
+        petr.info();
     }
 }
