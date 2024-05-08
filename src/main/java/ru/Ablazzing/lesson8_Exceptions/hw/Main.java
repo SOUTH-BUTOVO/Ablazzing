@@ -1,6 +1,16 @@
 package ru.Ablazzing.lesson8_Exceptions.hw;
 
+import ru.Ablazzing.lesson8_Exceptions.hw.airplane.Airplane;
+import ru.Ablazzing.lesson8_Exceptions.hw.airplane.Duck;
+import ru.Ablazzing.lesson8_Exceptions.hw.airplane.Flyable;
+import ru.Ablazzing.lesson8_Exceptions.hw.shop.Brand;
+import ru.Ablazzing.lesson8_Exceptions.hw.shop.Store;
+import ru.Ablazzing.lesson8_Exceptions.hw.shop.Watch;
+import ru.Ablazzing.lesson8_Exceptions.hw.shop.Worker;
+
 public class Main {
+    public static void main(String[] args) {
+
     /* 1 Создать два класса, которые умеют летать: Самолёт и Утка. Атрибут Утки: isInjured (ранен),
     атрибут Самолёта: countPassengers.
         - Создать интерфейс, который объединяет эти два класса.
@@ -18,6 +28,16 @@ public class Main {
             - Ошибка: Утка ранена.
             - Самолёт летит.
             - Ошибка: пассажиров в Самолёте меньше 0. */
+        Airplane pobeda = Airplane.builder().countPassengers(10).build();
+        Airplane beda = Airplane.builder().countPassengers(-10).build();
+
+        Duck billi = Duck.builder().isInjured(false).build();
+        Duck villi = Duck.builder().isInjured(true).build();
+
+        Flyable[] flyables = {pobeda, beda, billi, villi};
+        for (Flyable flyable : flyables) {
+            //flyable.fly();
+        }
 
     /* 2 Создать следующую структуру из классов и интерфейсов:
         - Магазин (обладает работниками)
@@ -30,6 +50,21 @@ public class Main {
     сломанных часов. Ожидание вывода на экран:
         - Часы тикают.
         - Ошибка: Часы сломаны. */
+        Watch watch1 = new Worker();
+
+        Worker worker1 = new Worker();
+        Worker worker2 = new Worker();
+
+        Store store1 = new Store();
+        Store store2 = new Store();
+        Brand[] brands = {store1, store2};
+
+
+
+        for (Brand brand : brands) {
+
+        }
+
 
     /* 3 Реализовать Паттерн Decorator для Класса Car (атрибут - стоимость, метод - вывести на экран стоимость).
     Метод вывести на экран стоимость - выкидывает ошибку, если стоимость меньше 0. Для этого шаблона характерно:
@@ -44,4 +79,6 @@ public class Main {
         Здравствуй клиент, цена этого авто (Вызвано из объекта CarShop):
         Неизвестна мне - (Вызвано из объекта CarShop)
         Давайте посмотрим другое авто? (Вызвано из объекта CarShop) */
+
+    }
 }
