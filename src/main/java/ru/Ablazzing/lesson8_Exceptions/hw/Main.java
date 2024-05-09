@@ -39,6 +39,23 @@ public class Main {
             //flyable.fly();
         }
 
+        String carMark = "Audi";
+        String carModel = "Q3";
+        double price = 15_000.00;
+        boolean hasAutomaticTransmission = false;
+        System.out.printf("Привет, я менеджер салона " + carMark +
+                          "\nУ нас есть модель - " + carModel + " за " + price +
+                          "\nЕсть ли у неё, автоматическая коробка передач?\n" +
+                          (hasAutomaticTransmission ? "Да" : "Нет"));
+        // Три кавычки! Это работает в ЖДК 15+
+//        String str = """
+//                     Привет, я менеджер салона %s
+//                     У нас есть модель - %s за %f
+//                     Есть ли у неё автоматическая коробка передач?
+//                     %s
+//                     """.formatted(carMark, carModel, price, hasAutomaticTransmission ? "Да" : "Нет");
+
+
     /* 2 Создать следующую структуру из классов и интерфейсов:
         - Магазин (обладает работниками)
         - Работник (обладает часами - (часы одни))
