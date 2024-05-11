@@ -1,7 +1,7 @@
 package ru.Ablazzing.lesson8_Exceptions.hw.airplane;
 
 public class Duck implements Flyable {
-    boolean isInjured = true;
+    private boolean isInjured = true;
 
     public static DuckBuilder builder() {
         return new DuckBuilder();

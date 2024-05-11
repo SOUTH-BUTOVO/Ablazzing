@@ -1,12 +1,11 @@
 package ru.Ablazzing.lesson8_Exceptions.hw;
 
+import ru.Ablazzing.lesson8_Exceptions.hw.Decorator.Car;
+import ru.Ablazzing.lesson8_Exceptions.hw.Decorator.CarShop;
 import ru.Ablazzing.lesson8_Exceptions.hw.airplane.Airplane;
 import ru.Ablazzing.lesson8_Exceptions.hw.airplane.Duck;
 import ru.Ablazzing.lesson8_Exceptions.hw.airplane.Flyable;
-import ru.Ablazzing.lesson8_Exceptions.hw.shop.Brand;
-import ru.Ablazzing.lesson8_Exceptions.hw.shop.Store;
-import ru.Ablazzing.lesson8_Exceptions.hw.shop.Watch;
-import ru.Ablazzing.lesson8_Exceptions.hw.shop.Worker;
+import ru.Ablazzing.lesson8_Exceptions.hw.shop.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -46,7 +45,7 @@ public class Main {
         System.out.printf("Привет, я менеджер салона " + carMark +
                           "\nУ нас есть модель - " + carModel + " за " + price +
                           "\nЕсть ли у неё, автоматическая коробка передач?\n" +
-                          (hasAutomaticTransmission ? "Да" : "Нет"));
+                          (hasAutomaticTransmission ? "Да\n" : "Нет\n"));
         // Три кавычки! Это работает в ЖДК 15+
 //        String str = """
 //                     Привет, я менеджер салона %s
@@ -54,7 +53,7 @@ public class Main {
 //                     Есть ли у неё автоматическая коробка передач?
 //                     %s
 //                     """.formatted(carMark, carModel, price, hasAutomaticTransmission ? "Да" : "Нет");
-
+        System.out.println("-----------------");
 
     /* 2 Создать следующую структуру из классов и интерфейсов:
         - Магазин (обладает работниками)
@@ -67,20 +66,27 @@ public class Main {
     сломанных часов. Ожидание вывода на экран:
         - Часы тикают.
         - Ошибка: Часы сломаны. */
-        Watch watch1 = new Worker();
+        Watch watch1 = new Watch(false);
+        Watch watch2 = new Watch(true);
 
-        Worker worker1 = new Worker();
-        Worker worker2 = new Worker();
+        Worker worker1 = new Worker(watch1);
+        Worker worker2 = new Worker(watch2);
 
-        Store store1 = new Store();
-        Store store2 = new Store();
-        Brand[] brands = {store1, store2};
+        Store store1 = new Store(new Worker[]{worker1});
+        Store store2 = new Store(new Worker[]{worker2});
 
+        Brand brands = new Brand(new Store[]{store1, store2});
 
-
-        for (Brand brand : brands) {
-
+        for (Store store : brands.getStores()) {
+            for (Worker worker : store.getWorkers()) {
+                try {
+                    worker.getWatch().tick();
+                } catch (WatchBrokenError e) {
+                    System.err.println(e.getMessage());
+                }
+            }
         }
+        System.out.println("-----------------");
 
 
     /* 3 Реализовать Паттерн Decorator для Класса Car (атрибут - стоимость, метод - вывести на экран стоимость).
@@ -96,6 +102,12 @@ public class Main {
         Здравствуй клиент, цена этого авто (Вызвано из объекта CarShop):
         Неизвестна мне - (Вызвано из объекта CarShop)
         Давайте посмотрим другое авто? (Вызвано из объекта CarShop) */
+        Car car1 = new Car(10_000);
+        Car car2 = new Car(-10_000);
+        CarShop carShop1 = new CarShop(car1);
+        CarShop carShop2 = new CarShop(car2);
+        carShop1.getPrice();
+        carShop2.getPrice();
 
     }
 }
