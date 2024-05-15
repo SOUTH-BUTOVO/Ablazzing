@@ -1,16 +1,36 @@
 package ru.Ablazzing.lesson10.hw;
 
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         /* 1 Создать файл "my_first_file.txt". На первой строке написать: "Моя бабушка",
         на второй: "читает газету жизнь". Прочитать файл и вывести на экран все слова файла в одну строку.
         Ожидаемый результат: "Моя бабушка читает газету жизнь". */
+        ReadAndWriteFile readAndWriteFile = new ReadAndWriteFile();
+        //readAndWriteFile.writeFile();
 
         /* 2 Создать класс FinancialRecord, с двумя атрибутами (incomes, outcomes), (доходы, расходы).
         Создать в этом классе геттеры, сеттеры и конструктор на все атрибуты. Создать объект этого класса,
         прямо здесь (class HomeWork, метод main), с доходами 500, расходами 300. Записать в файл "report.txt"
         данные из объекта класса.
         Ожидаемый результат: В файле "report.txt" - одна строка (доходы = 500, расходы = 300). */
+        FinancialRecord record = new FinancialRecord();
+        FinancialRecord record2 = new FinancialRecord();
+        record.main2();
+
+        /* 2 Создать сеть ресторанов, которая обладает общими для всех ресторанов, запасами продуктов:
+        сосиски, хлеб. Каждый ресторан может подать блюдо, тогда минус 1 сосиска и два куска хлеба из
+        общего запаса. Если сосисок или хлеба не хватает, тогда вывести на экран: "Нет ингредиентов!"
+        Каждый ресторан может принять партию товара: плюс 100 сосисок и 200 кусков хлеба.
+        Запасы продуктов должны быть скрыты от чужих глаз! */
+        Restaurant restaurant1 = new Restaurant();
+        Restaurant restaurant2 = new Restaurant();
+        restaurant1.order(Restaurant.getSausage(), Restaurant.getBread());
+        restaurant2.order(Restaurant.getSausage(), Restaurant.getBread());
+        restaurant1.addProducts();
+        restaurant1.order(Restaurant.getSausage(), Restaurant.getBread());
+        restaurant2.order(Restaurant.getSausage(), Restaurant.getBread());
 
         /* 3 Создать класс FinancialRecord, с двумя атрибутами (incomes, outcomes), (доходы, расходы).
         Создать в этом классе геттеры, сеттеры и конструктор на все атрибуты. Создать 10 отчётов (объектов
