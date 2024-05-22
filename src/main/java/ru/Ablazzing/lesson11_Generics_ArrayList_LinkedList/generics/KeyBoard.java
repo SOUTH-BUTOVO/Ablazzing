@@ -1,4 +1,4 @@
-package ru.Ablazzing.lesson11_Generics_ArrayList_LinkedList;
+package ru.Ablazzing.lesson11_Generics_ArrayList_LinkedList.generics;
 
 public class KeyBoard implements Input {
 
