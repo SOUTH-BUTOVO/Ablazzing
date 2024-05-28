@@ -24,9 +24,9 @@ public class Professions {
 
 class Runner {
     public static void main(String[] args) {
-        Professions security = new Security();
-        Professions accountant = new Accountant();
-        Professions secretary = new Secretary();
+        Security security = new Security();
+        Accountant accountant = new Accountant();
+        Secretary secretary = new Secretary();
 
 //        secretary.job();
 //        accountant.coffeeBreak();
@@ -40,5 +40,14 @@ class Runner {
             professions.coffeeBreak();
             professions.getSalary();
         }
+        System.out.println("-----------------");
+
+        workers(security, accountant, secretary);
+    }
+
+    static void workers(Professions prof1, Professions prof2, Professions prof3) {
+        prof1.job();
+        prof2.job();
+        prof3.job();
     }
 }
