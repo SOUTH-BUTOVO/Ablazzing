@@ -17,6 +17,10 @@ public class Main {
         for (Agent smit : makeClones(agent)) {
             System.out.println(smit);
         }
+
+        String text = "1000";
+        int number = Integer.parseInt(text);
+        System.out.println(number * 2 + 24);
     }
 
     public static Agent[] makeClones(Agent agent) throws CloneNotSupportedException {
