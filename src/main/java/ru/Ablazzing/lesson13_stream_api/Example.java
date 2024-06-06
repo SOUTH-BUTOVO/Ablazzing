@@ -8,6 +8,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 public class Example {
     public static void main(String[] args) {
@@ -117,7 +118,26 @@ public class Example {
 
         sortStudents(students, studentComparator);
         System.out.println(Arrays.toString(students));
+        System.out.println("-----------------");
 
+        long start = System.currentTimeMillis();
+        Circle circle1 = new Circle("purple");
+        Circle circle2 = new Circle("purple");
+        Circle circle3 = new Circle("purple");
+        List<Circle> circles = List.of(circle1, circle2, circle3);
+        System.out.println(circles);
+
+//        for (Circle circle : circles) {
+//            circle.setColor("yellow");
+//        }
+//        System.out.println(circles);
+
+        Stream<Circle> stream = circles.parallelStream();
+        stream.forEach(circle -> circle.setColor("black"));
+        System.out.println(circles);
+
+        long end = System.currentTimeMillis();
+        System.out.println((end - start) / 1000);
     }
 
     static int sum(int a, int b) {
