@@ -9,8 +9,9 @@ public class TerminalOperations {
         List<Integer> list = List.of(4, 5, 6);
         Stream<Integer> integerStream = list.stream();
         System.out.println("List: " + integerStream.count());
-        Stream<Integer>integerStream2 = list.stream();
-        integerStream2.forEach(e -> System.out.print(e));
+        Stream<Integer> integerStream2 = list.stream();
+        integerStream2.forEach(e ->
+                System.out.print(e));
         System.out.println();
         System.out.println("---------------");
 
@@ -19,6 +20,13 @@ public class TerminalOperations {
 
         System.out.print("Печатаем на экран элементы: ");
         Stream<Integer> stream2 = Stream.of(1, 2, 3);
-        stream2.forEach(e -> System.out.print(e + " "));
+        stream2.forEach(e -> {
+            System.out.print("Делаем ещё что то!  ");
+            System.out.print(e + " ");
+        });
+    }
+
+    public static void logical() {
+
     }
 }
