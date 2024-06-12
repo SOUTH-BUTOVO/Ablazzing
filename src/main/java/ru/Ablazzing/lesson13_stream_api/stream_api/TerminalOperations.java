@@ -7,8 +7,10 @@ public class TerminalOperations {
     public static void main(String[] args) {
 
         List<Integer> list = List.of(4, 5, 6);
+
         Stream<Integer> integerStream = list.stream();
         System.out.println("List: " + integerStream.count());
+
         Stream<Integer> integerStream2 = list.stream();
         integerStream2.forEach(e ->
                 System.out.print(e));
